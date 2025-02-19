@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progetto di Rete - SpaceXStudios</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; line-height: 1.6; }
+        h1, h2 { color: #333; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f4f4f4; }
+    </style>
+</head>
+<body>
+    <h1>Progetto di Rete - SpaceXStudios</h1>
+    <p>Il presente progetto riguarda la progettazione e realizzazione di una rete avanzata per SpaceXStudios, uno studio di produzione musicale e video di alto livello.</p>
+    
+    <h2>Obiettivi della Rete</h2>
+    <ul>
+        <li>Connessione ad alta velocità e bassa latenza.</li>
+        <li>Separazione del traffico per evitare interferenze.</li>
+        <li>Gestione sicura di dispositivi audio professionali.</li>
+        <li>Rete Wi-Fi unificata e controllata.</li>
+        <li>Web Server dedicato per servizi interni.</li>
+        <li>Scalabilità per future espansioni.</li>
+    </ul>
+    
+    <h2>Struttura della Rete e Topologia</h2>
+    <ul>
+        <li>Router principale connesso a Internet.</li>
+        <li>Switch Layer 3 per il routing tra VLAN.</li>
+        <li>Switch secondari per diverse aree di lavoro.</li>
+        <li>Server dedicati nella Sala Macchine (DHCP, Web, NAS).</li>
+        <li>Access Point Wi-Fi per connessione wireless controllata.</li>
+    </ul>
+    
+    <h2>VLAN e Segmentazione della Rete</h2>
+    <table>
+        <tr>
+            <th>VLAN</th>
+            <th>Descrizione</th>
+            <th>IP Subnet</th>
+        </tr>
+        <tr><td>10</td><td>Workstation principali</td><td>192.168.10.0/24</td></tr>
+        <tr><td>20</td><td>Soundgrid (Processamento audio)</td><td>192.168.20.0/24</td></tr>
+        <tr><td>30</td><td>DAW Controller</td><td>192.168.30.0/24</td></tr>
+        <tr><td>40</td><td>Server NAS e Web</td><td>192.168.40.0/24</td></tr>
+        <tr><td>50</td><td>Editing Video</td><td>192.168.50.0/24</td></tr>
+        <tr><td>60</td><td>Social Media</td><td>192.168.60.0/24</td></tr>
+        <tr><td>70</td><td>Wireless Devices</td><td>192.168.70.0/24</td></tr>
+    </table>
+    
+    <h2>Gestione del Traffico</h2>
+    <ul>
+        <li>Le VLAN Editing Video e Social Media non possono accedere a Soundgrid e DAW Controller.</li>
+        <li>Soundgrid e DAW Controller non possono accedere ai Server NAS.</li>
+        <li>I dispositivi wireless sono isolati dalle VLAN dei server.</li>
+    </ul>
+    
+    <h2>Configurazione del Wi-Fi</h2>
+    <ul>
+        <li>Il Server DHCP assegna gli IP ai dispositivi wireless.</li>
+        <li>Il traffico wireless è isolato per garantire stabilità e sicurezza.</li>
+    </ul>
+    
+    <h2>Web Server</h2>
+    <ul>
+        <li>Ospita il sito web di SpaceXStudios.</li>
+        <li>Modulo di contatto per prenotazioni e richieste.</li>
+        <li>Sezione dedicata alle attrezzature e agli studi di registrazione.</li>
+    </ul>
+    
+    <h2>Test e Verifiche Effettuate</h2>
+    <ul>
+        <li>Ping tra dispositivi su VLAN diverse (solo se consentito dalle ACL).</li>
+        <li>Test di latenza tra DAW Controller e Soundgrid.</li>
+        <li>Assegnazione automatica degli IP DHCP ai dispositivi Wi-Fi.</li>
+        <li>Accesso al Web Server da workstation e dispositivi di rete.</li>
+    </ul>
+    
+    <h2>Conclusione</h2>
+    <p>La rete di SpaceXStudios garantisce efficienza, sicurezza e scalabilità. La segmentazione VLAN e le ACL permettono un'operatività senza interferenze, assicurando un ambiente di produzione audio/video ottimale.</p>
+</body>
+</html>
